@@ -24,6 +24,14 @@ int main(int argc, const char * argv[]) {
         [computerInformation localizedName];
         NSString *computerName = [computerInformation localizedName];
         NSLog(@"Computer's name is: %@.", computerName);
+        
+        NSCalendar *cal = [NSCalendar currentCalendar];
+        NSLog(@"My calendar is %@", [cal calendarIdentifier]);
+        
+        unsigned long day = [cal ordinalityOfUnit:NSCalendarUnitDay
+                                            inUnit:NSCalendarUnitMonth
+                                           forDate:now];
+        NSLog(@"This is day %lu of the month", day);
     }
     return 0;
 }
